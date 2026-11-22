@@ -1,14 +1,19 @@
 package dashboard;
 
+import dashboard.clase.PanelCodigoClase;
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JToggleButton;
 
 /**
  * Base de cada proyecto del dashboard: encabezado con número, título,
@@ -25,6 +30,11 @@ public abstract class PanelProyecto extends JPanel {
     protected final Color acento;
     private final JLabel barraMensaje = new JLabel();
     private TipoMensaje tipoActual = TipoMensaje.INFO;
+    private static final String VISTA_DEMO = "demo";
+    private static final String VISTA_CLASE = "clase";
+    private final CardLayout cartas = new CardLayout();
+    private JToggleButton selectorDemo;
+    private JToggleButton selectorClase;
 
     /**
      * @param numero número del proyecto (1 a 6)
@@ -77,7 +87,68 @@ public abstract class PanelProyecto extends JPanel {
      * @param contenido componente central
      */
     protected void setContenido(JComponent contenido) {
-        add(contenido, BorderLayout.CENTER);
+        // Dos vistas por proyecto: la demo interactiva y la explicación de las
+        // funciones con lo visto en clase (rama explicacion-clase).
+        JPanel vistas = new JPanel(cartas);
+        vistas.setOpaque(false);
+        vistas.add(contenido, VISTA_DEMO);
+        vistas.add(new PanelCodigoClase(numero, acento), VISTA_CLASE);
+
+        JPanel centro = new JPanel(new BorderLayout(0, 10));
+        centro.setOpaque(false);
+        centro.add(selectorVista(vistas), BorderLayout.NORTH);
+        centro.add(vistas, BorderLayout.CENTER);
+        add(centro, BorderLayout.CENTER);
+    }
+
+    /**
+     * Cambia entre la demo interactiva y la pestaña "Código y clase".
+     *
+     * @param clase true para mostrar el código y su relación con la clase
+     */
+    public void mostrarCodigoClase(boolean clase) {
+        if (selectorClase != null) {
+            (clase ? selectorClase : selectorDemo).doClick();
+        }
+    }
+
+    private JComponent selectorVista(JPanel vistas) {
+        selectorDemo = new JToggleButton("▶  Demo interactiva", true);
+        selectorClase = new JToggleButton("{ }  Código y clase");
+        ButtonGroup grupo = new ButtonGroup();
+        JPanel fila = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
+        fila.setOpaque(false);
+        for (JToggleButton b : new JToggleButton[] {selectorDemo, selectorClase}) {
+            grupo.add(b);
+            // UI básica para que respete el color de fondo con cualquier look and feel.
+            b.setUI(new javax.swing.plaf.basic.BasicToggleButtonUI());
+            b.setFont(Tema.TEXTO_NEGRITA);
+            b.setFocusPainted(false);
+            b.setBorder(BorderFactory.createEmptyBorder(7, 16, 7, 16));
+            b.setOpaque(true);
+            b.setCursor(java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.HAND_CURSOR));
+            fila.add(b);
+        }
+        Runnable pintar = () -> {
+            for (JToggleButton b : new JToggleButton[] {selectorDemo, selectorClase}) {
+                b.setBackground(b.isSelected() ? acento : Color.WHITE);
+                b.setForeground(b.isSelected() ? Color.WHITE : Tema.GRIS);
+            }
+        };
+        selectorDemo.addActionListener(e -> {
+            cartas.show(vistas, VISTA_DEMO);
+            pintar.run();
+        });
+        selectorClase.addActionListener(e -> {
+            cartas.show(vistas, VISTA_CLASE);
+            pintar.run();
+        });
+        pintar.run();
+        fila.setBorder(BorderFactory.createLineBorder(Tema.LINEA));
+        JPanel envoltura = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
+        envoltura.setOpaque(false);
+        envoltura.add(fila);
+        return envoltura;
     }
 
     /**
