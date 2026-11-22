@@ -114,11 +114,11 @@ En esta rama cada proyecto tiene dos vistas, que se cambian con los botones de a
 
 | # | Proyecto | Funciones explicadas | Tema de clase |
 |---|---|---|---|
-| 1 | Resistencia | `porIndice`, constructor de `Resistencia`, `generarResistencias`, `calcularTotal` (paralelo) | Parcial 1: arreglos y pilas |
-| 2 | Carrito | `agregarProducto`, `eliminarPorId`, `calcularTotal` | Parcial 1: listas enlazadas |
-| 3 | Navegador | `apilar`, `desapilar`, `atras` | Parcial 1: pilas |
-| 4 | Cola de impresión | `encolar`, `atender` | Parcial 1: colas |
-| 5 | Sistema de archivos | `insertar`, `buscar`, `inorden`, `eliminar` | Parcial 2: 6. Árboles |
+| 1 | Resistencia | `porIndice`, constructor de `Resistencia`, `generarResistencias`, `calcularTotal` (paralelo) | Parcial 1: 1. Arreglos y 4. Pilas |
+| 2 | Carrito | `agregarProducto`, `eliminarPorId`, `calcularTotal` | Parcial 1: 2. Listas |
+| 3 | Navegador | `apilar`, `desapilar`, `atras` | Parcial 1: 4. Pilas |
+| 4 | Cola de impresión | `encolar`, `atender` | Parcial 1: 5. Colas |
+| 5 | Sistema de archivos | `insertar`, `buscar`, `inorden`, `eliminar` | Parcial 2: 6. Árboles (y 3. Recursividad del Parcial 1) |
 | 6 | Ruta mágica | `agregarCarretera`, `Dijkstra`, `getRuta`, `desdeLineas` | Parcial 2: 7. Grafos y El camino más corto |
 
 | Sistema de archivos | Ruta mágica |

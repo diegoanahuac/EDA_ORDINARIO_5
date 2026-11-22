@@ -15,19 +15,19 @@ public final class CatalogoClase {
     private static final String P2 = "Parcial 2";
 
     // Temas de Brightspace › Contenido.
-    static final String T_ARREGLOS = "Parcial 1 › Arreglos";
-    static final String T_LISTAS = "Parcial 1 › Listas enlazadas";
-    static final String T_PILAS = "Parcial 1 › Pilas";
-    static final String T_COLAS = "Parcial 1 › Colas";
+    static final String T_ARREGLOS = "Parcial 1 › 1. Arreglos";
+    static final String T_LISTAS = "Parcial 1 › 2. Listas";
+    static final String T_PILAS = "Parcial 1 › 4. Pilas";
+    static final String T_COLAS = "Parcial 1 › 5. Colas";
     static final String T_ARBOLES = "Parcial 2 › 6. Árboles";
     static final String T_GRAFOS = "Parcial 2 › 7. Grafos";
     static final String T_ORDENAMIENTO = "Parcial 2 › 8. Ordenamiento y búsqueda";
 
     // Materiales de cada tema.
-    static final String M_ARREGLOS = "Presentación de Arreglos";
-    static final String M_LISTAS = "Presentación de Listas";
-    static final String M_PILAS = "Presentación de Pilas";
-    static final String M_COLAS = "Presentación de Colas";
+    static final String M_ARREGLOS = "Arreglos I · Arreglos II · Arreglos Resumen";
+    static final String M_LISTAS = "Listas · Lista Enlazada Simple · Lista Simple - Java";
+    static final String M_PILAS = "Pilas · Java - Stack";
+    static final String M_COLAS = "Colas";
     static final String M_ARBOLES = "Árboles2.pdf · Arboles APUNTES · Simulador de árbol binario";
     static final String M_GRAFOS = "MD5. Grafos_Liz.pdf · MD5. Grafos dirigidos_Liz";
     static final String M_CAMINO = "El camino mas corto.pdf";
@@ -113,9 +113,10 @@ public final class CatalogoClase {
                     new Referencia("Insertar en el árbol binario de búsqueda",
                             P2, T_ARBOLES, M_ARBOLES,
                             "archivos/ArbolArchivos.java", "public void insertar",
-                            "Regla del ABB vista en clase: se compara con la raíz; si el nombre es menor se baja "
-                                    + "a la izquierda y si es mayor a la derecha, hasta encontrar un hueco (null) donde "
-                                    + "va el nodo nuevo. No se permiten duplicados."),
+                            "Regla del ABB de Arboles APUNTES: se compara con el nodo actual; si el valor es menor "
+                                    + "se baja a la izquierda y si es mayor a la derecha, hasta encontrar un hueco (null) "
+                                    + "donde va el nodo nuevo. En los apuntes el valor igual va a la derecha; aquí un "
+                                    + "nombre repetido se rechaza, porque en un directorio no puede haber dos iguales."),
                     new Referencia("Buscar en el ABB",
                             P2, T_ARBOLES, M_ARBOLES,
                             "archivos/ArbolArchivos.java", "public Nodo buscar(String nombre)",
@@ -124,9 +125,10 @@ public final class CatalogoClase {
                     new Referencia("Recorrido inorden (recursivo)",
                             P2, T_ARBOLES, M_ARBOLES,
                             "archivos/ArbolArchivos.java", "private void inorden(Nodo actual",
-                            "Izquierda, raíz, derecha: en un ABB entrega los nombres en orden alfabético. Es la "
-                                    + "versión recursiva de clase, con el caso base cuando el nodo es null. Preorden y "
-                                    + "postorden sólo cambian el lugar donde se visita la raíz."),
+                            "Izquierda, raíz, derecha: en un ABB entrega los nombres en orden alfabético. Usa la "
+                                    + "recursividad del Parcial 1 (3. Recursividad): el caso base es el nodo null y cada "
+                                    + "llamada resuelve un subárbol más chico. Preorden y postorden sólo cambian el lugar "
+                                    + "donde se visita la raíz."),
                     new Referencia("Eliminar: los tres casos",
                             P2, T_ARBOLES, M_ARBOLES,
                             "archivos/ArbolArchivos.java", "public boolean eliminar(String nombre)",
