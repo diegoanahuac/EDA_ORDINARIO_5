@@ -125,6 +125,8 @@ En esta rama cada proyecto tiene dos vistas, que se cambian con los botones de a
 |---|---|
 | ![Código y clase: árbol](docs/capturas/clase_05_archivos.png) | ![Código y clase: grafos](docs/capturas/clase_06_ruta.png) |
 
+**Descargar esta rama en Windows:** baja el ZIP de https://github.com/diegoanahuac/EDA_ORDINARIO_5/archive/refs/heads/explicacion-clase.zip, extráelo (clic derecho › Extraer todo) y haz doble clic en `ejecutar.bat`. Necesitas el JDK 17 o superior. Con Git: `git clone -b explicacion-clase https://github.com/diegoanahuac/EDA_ORDINARIO_5.git`.
+
 Las referencias están en `src/dashboard/clase/CatalogoClase.java` (una lista por proyecto); para agregar una función basta con añadir otra `Referencia` con el archivo y el inicio de su firma.
 
 ## Estructura del repositorio
