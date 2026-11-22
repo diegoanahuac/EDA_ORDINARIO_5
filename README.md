@@ -104,12 +104,36 @@ La barra lateral lleva a cada proyecto por separado; la pantalla de inicio tiene
 |---|---|
 | ![Ruta](docs/capturas/06_ruta_sisal_espita.png) | ![Paso a paso](docs/capturas/06_ruta_paso_a_paso.png) |
 
+## Código y clase (rama `explicacion-clase`)
+
+En esta rama cada proyecto tiene dos vistas, que se cambian con los botones de arriba: **Demo interactiva** (la de siempre) y **Código y clase**. La segunda explica qué funciones usamos y cómo se relacionan con lo visto en clase (Brightspace › Contenido › Parcial 1 y Parcial 2):
+
+- A la izquierda, las funciones del proyecto.
+- Arriba a la derecha, el tema de clase y su material de Brightspace, y una explicación de cómo se relaciona el código con lo que vimos.
+- Abajo, el código real del método (raw), con números de línea y la ruta del archivo. Se lee en el momento desde `src/`, así que siempre coincide con el programa que se ejecuta.
+
+| # | Proyecto | Funciones explicadas | Tema de clase |
+|---|---|---|---|
+| 1 | Resistencia | `porIndice`, constructor de `Resistencia`, `generarResistencias`, `calcularTotal` (paralelo) | Parcial 1: arreglos y pilas |
+| 2 | Carrito | `agregarProducto`, `eliminarPorId`, `calcularTotal` | Parcial 1: listas enlazadas |
+| 3 | Navegador | `apilar`, `desapilar`, `atras` | Parcial 1: pilas |
+| 4 | Cola de impresión | `encolar`, `atender` | Parcial 1: colas |
+| 5 | Sistema de archivos | `insertar`, `buscar`, `inorden`, `eliminar` | Parcial 2: 6. Árboles |
+| 6 | Ruta mágica | `agregarCarretera`, `Dijkstra`, `getRuta`, `desdeLineas` | Parcial 2: 7. Grafos y El camino más corto |
+
+| Sistema de archivos | Ruta mágica |
+|---|---|
+| ![Código y clase: árbol](docs/capturas/clase_05_archivos.png) | ![Código y clase: grafos](docs/capturas/clase_06_ruta.png) |
+
+Las referencias están en `src/dashboard/clase/CatalogoClase.java` (una lista por proyecto); para agregar una función basta con añadir otra `Referencia` con el archivo y el inicio de su firma.
+
 ## Estructura del repositorio
 
 ```
 src/
 ├── dashboard/              ventana principal, tema visual, inicio y capturas
-│   └── proyectos/          una pantalla por proyecto (ProyectoResistencia, ProyectoCarrito, …)
+│   ├── proyectos/          una pantalla por proyecto (ProyectoResistencia, ProyectoCarrito, …)
+│   └── clase/              pestaña "Código y clase": referencias a la clase y lector del código
 ├── resistencia/            proyecto 1: modelo, estructuras y vista originales
 ├── carrito/                proyecto 2: Producto, NodoProducto, ListaProductos, Carrito, …
 ├── navegador/              proyecto 3: modelo (Pila, Navegador, …), consola y ventana original
