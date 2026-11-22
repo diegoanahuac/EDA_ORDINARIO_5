@@ -27,6 +27,32 @@ Requisito: JDK 17 o superior.
 
 En Windows: `ejecutar.bat`. El script compila todo en `out/` y abre el dashboard.
 
+### Desde la terminal de Windows (CMD)
+
+1. Descarga el ZIP de esta rama y extráelo con clic derecho › **Extraer todo** (por defecto queda en Descargas).
+2. Abre **Símbolo del sistema** (tecla Windows, escribe `cmd` y Enter).
+3. Entra a la carpeta del proyecto con `cd` y ejecuta el script:
+
+```bat
+cd %USERPROFILE%\Downloads\EDA_ORDINARIO_5-explicacion-clase\EDA_ORDINARIO_5-explicacion-clase
+ejecutar.bat
+```
+
+"Extraer todo" crea una carpeta con el nombre del ZIP y adentro otra con el mismo nombre; por eso la ruta lo repite. Si la extrajiste en otro lugar, escribe `cd ` y arrastra la carpeta a la ventana de CMD para pegar su ruta. Si está en otra unidad (por ejemplo `D:`), usa `cd /d D:\ruta\de\la\carpeta`.
+
+Para comprobar que estás en la carpeta correcta, `dir` debe mostrar `ejecutar.bat`, `src` y `datos`.
+
+| Comando | Para qué sirve |
+|---|---|
+| `cd nombre` | Entra a una carpeta |
+| `cd ..` | Sube una carpeta (si entraste de más) |
+| `dir` | Lista lo que hay en la carpeta actual |
+| `javac -version` | Confirma que el JDK está instalado (17 o superior) |
+| `ejecutar.bat` | Compila y abre el dashboard |
+| `ejecutar.bat carrito` | Abre un proyecto en su versión de consola |
+
+En **PowerShell** el script se ejecuta con `.\ejecutar.bat`.
+
 Cada proyecto también conserva su versión de consola:
 
 ```bash
@@ -125,7 +151,7 @@ En esta rama cada proyecto tiene dos vistas, que se cambian con los botones de a
 |---|---|
 | ![Código y clase: árbol](docs/capturas/clase_05_archivos.png) | ![Código y clase: grafos](docs/capturas/clase_06_ruta.png) |
 
-**Descargar esta rama en Windows:** baja el ZIP de https://github.com/diegoanahuac/EDA_ORDINARIO_5/archive/refs/heads/explicacion-clase.zip, extráelo (clic derecho › Extraer todo) y haz doble clic en `ejecutar.bat`. Necesitas el JDK 17 o superior. Con Git: `git clone -b explicacion-clase https://github.com/diegoanahuac/EDA_ORDINARIO_5.git`.
+**Descargar esta rama en Windows:** baja el ZIP de https://github.com/diegoanahuac/EDA_ORDINARIO_5/archive/refs/heads/explicacion-clase.zip, extráelo (clic derecho › Extraer todo) y haz doble clic en `ejecutar.bat`, o ábrelo desde CMD con `cd` (ver [Desde la terminal de Windows](#desde-la-terminal-de-windows-cmd)). Necesitas el JDK 17 o superior. Con Git: `git clone -b explicacion-clase https://github.com/diegoanahuac/EDA_ORDINARIO_5.git`.
 
 Las referencias están en `src/dashboard/clase/CatalogoClase.java` (una lista por proyecto); para agregar una función basta con añadir otra `Referencia` con el archivo y el inicio de su firma.
 
