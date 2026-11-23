@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>EDA · Proyecto Ordinario · Equipo 5</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f5f7fa; color: #172033; font: 16px/1.5 system-ui, sans-serif; }
+  header, main { max-width: 1420px; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 22px; margin: 0; }
+  h2 { font-size: 18px; margin: 28px 0 8px; }
+  p { margin: 6px 0; }
+  a { color: #1e3a8a; }
+  .gris { color: #667085; font-size: 14px; }
+  #marco { width: 100%; overflow-x: auto; border-radius: 10px; }
+  #app { margin: 0 auto; }
+  #aviso { padding: 10px 14px; border-radius: 8px; background: #eff6ff; border: 1px solid #d0d5dd; margin: 10px 0; }
+  .galeria { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+  figure { margin: 0; background: #fff; border: 1px solid #d0d5dd; border-radius: 10px; overflow: hidden; }
+  figure img { width: 100%; display: block; }
+  figcaption { padding: 8px 12px; font-size: 14px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Proyecto Ordinario · Estructuras de Datos y Algoritmos</h1>
+  <p class="gris">Universidad Anáhuac Mayab · Equipo ProyectoFinal 5 ·
+    <a href="https://github.com/diegoanahuac/EDA_ORDINARIO_5/tree/explicacion-clase">código en GitHub</a></p>
+</header>
+<main>
+  <div id="aviso" role="status">Cargando el dashboard… La primera vez puede tardar hasta un minuto.</div>
+  <div id="marco"><div id="app"></div></div>
+  <p>En cada proyecto hay dos botones: <b>Demo interactiva</b> y <b>Código y clase</b>, que muestra el código real de cada función y el tema del curso con el que se relaciona.</p>
+  <p class="gris">Es el mismo programa en Java (Swing) ejecutándose en el navegador.
+    <a href="https://cheerpj.com">Built with CheerpJ</a>. Se ve mejor en una computadora; en el teléfono usa las capturas.</p>
+  <h2>Capturas de «Código y clase»</h2>
+  <div class="galeria">
+    <figure><a href="capturas/clase_01_resistencia.png"><img loading="lazy" src="capturas/clase_01_resistencia.png" alt="Código y clase del proyecto Resistencia eléctrica"></a><figcaption>1. Resistencia eléctrica · arreglos y pilas</figcaption></figure>
+    <figure><a href="capturas/clase_02_carrito.png"><img loading="lazy" src="capturas/clase_02_carrito.png" alt="Código y clase del proyecto Carrito de compras"></a><figcaption>2. Carrito de compras · listas</figcaption></figure>
+    <figure><a href="capturas/clase_03_navegador.png"><img loading="lazy" src="capturas/clase_03_navegador.png" alt="Código y clase del proyecto Navegador web"></a><figcaption>3. Navegador web · pilas</figcaption></figure>
+    <figure><a href="capturas/clase_04_cola.png"><img loading="lazy" src="capturas/clase_04_cola.png" alt="Código y clase del proyecto Cola de impresión"></a><figcaption>4. Cola de impresión · colas</figcaption></figure>
+    <figure><a href="capturas/clase_05_archivos.png"><img loading="lazy" src="capturas/clase_05_archivos.png" alt="Código y clase del proyecto Sistema de archivos"></a><figcaption>5. Sistema de archivos · árbol binario de búsqueda</figcaption></figure>
+    <figure><a href="capturas/clase_06_ruta.png"><img loading="lazy" src="capturas/clase_06_ruta.png" alt="Código y clase del proyecto Ruta mágica"></a><figcaption>6. Ruta mágica · grafos y Dijkstra</figcaption></figure>
+  </div>
+</main>
+<script src="https://cjrtnc.leaningtech.com/4.3/loader.js"></script>
+<script>
+  const marco = document.getElementById('marco'), app = document.getElementById('app'), aviso = document.getElementById('aviso');
+  // Sin escalar con CSS: CheerpJ no corrige la posición de los clics. La ventana
+  // de Java toma el tamaño de la página (mínimo 1180 x 760, el del dashboard).
+  const ancho = Math.max(1180, Math.min(1380, marco.clientWidth));
+  const alto = Math.max(760, Math.min(880, innerHeight - 110));
+  app.style.width = ancho + 'px';
+  app.style.height = alto + 'px';
+  (async () => {
+    try {
+      await cheerpjInit({ version: 11, status: 'splash' });
+      cheerpjCreateDisplay(ancho, alto, app);
+      const base = location.pathname.replace(/[^/]*$/, '');
+      cheerpjRunMain('dashboard.Web', '/app' + base + 'EDA_Ordinario.jar', String(ancho), String(alto))
+        .catch(e => { aviso.textContent = 'El dashboard se detuvo: ' + e + '. Usa las capturas de abajo.'; aviso.hidden = false; });
+      const espera = setInterval(() => { if (app.querySelector('canvas')) { aviso.hidden = true; clearInterval(espera); } }, 500);
+    } catch (e) {
+      aviso.textContent = 'No se pudo cargar el dashboard en este navegador (' + e + '). Usa las capturas de abajo.';
+    }
+  })();
+</script>
+</body>
+</html>
