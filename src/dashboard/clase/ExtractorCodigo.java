@@ -1,9 +1,13 @@
 package dashboard.clase;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -78,10 +82,11 @@ public final class ExtractorCodigo {
      * @return el fragmento, o un aviso si no se encontró
      */
     public static Fragmento extraer(String archivo, String firma) {
-        File fuente = new File(carpetaFuentes(), archivo);
         List<String> lineas;
         try {
-            lineas = Files.readAllLines(fuente.toPath(), StandardCharsets.UTF_8);
+            lineas = ExtractorCodigo.class.getResource("/src/" + archivo) != null
+                    ? lineasDelJar(archivo)
+                    : Files.readAllLines(new File(carpetaFuentes(), archivo).toPath(), StandardCharsets.UTF_8);
         } catch (IOException e) {
             return new Fragmento("// No se pudo leer " + archivo
                     + "\n// Ejecuta el dashboard desde la carpeta del proyecto (./ejecutar.sh).", 0, 0, false);
@@ -133,6 +138,22 @@ public final class ExtractorCodigo {
             }
         }
         return new Fragmento(sb.toString(), inicio + 1, fin + 1, true);
+    }
+
+    /** Versión web: los fuentes van dentro del JAR, en {@code /src}. */
+    private static List<String> lineasDelJar(String archivo) throws IOException {
+        InputStream entrada = ExtractorCodigo.class.getResourceAsStream("/src/" + archivo);
+        if (entrada == null) {
+            throw new IOException("No está en el JAR: " + archivo);
+        }
+        List<String> lineas = new ArrayList<>();
+        try (BufferedReader lector = new BufferedReader(new InputStreamReader(entrada, StandardCharsets.UTF_8))) {
+            String linea;
+            while ((linea = lector.readLine()) != null) {
+                lineas.add(linea);
+            }
+        }
+        return lineas;
     }
 
     private static int sangria(String linea) {

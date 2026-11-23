@@ -39,12 +39,12 @@ public final class CatalogoClase {
                             "resistencia/modelo/ColorResistencia.java", "public static ColorResistencia porIndice",
                             "values() regresa el arreglo de las 10 constantes del enum en orden, así que el "
                                     + "índice 0..9 es directamente el dígito o el exponente de la banda. Es el acceso "
-                                    + "directo por índice que vimos en clase: tiempo constante O(1), y antes de leer se "
+                                    + "directo por índice de un arreglo: tiempo constante O(1), y antes de leer se "
                                     + "valida el rango (0 a length - 1) para no salirse del arreglo."),
                     new Referencia("De un número a sus tres bandas",
                             P1, T_ARREGLOS, M_ARREGLOS,
                             "resistencia/modelo/Resistencia.java", "public Resistencia(long valorOhmios)",
-                            "El valor se convierte en un arreglo de caracteres (sus dígitos) y se leen las "
+                            "El valor se convierte en texto (sus dígitos) y se leen con charAt las "
                                     + "posiciones 0 y 1. La cantidad de dígitos que sobran es el exponente. Después, "
                                     + "cada número se usa como índice del arreglo de colores con porIndice."),
                     new Referencia("Generar n resistencias en una pila",
@@ -58,7 +58,7 @@ public final class CatalogoClase {
                             "resistencia/modelo/CircuitoParalelo.java", "public double calcularTotal()",
                             "Recorrido secuencial con for-each: se acumula la suma de inversos y al final se "
                                     + "invierte (1/Rt = 1/R1 + 1/R2 + ...). Es el patrón de recorrido y acumulador "
-                                    + "que vimos con arreglos, O(n).")),
+                                    + "con arreglos, O(n).")),
             2, List.of(
                     new Referencia("Insertar al final de la lista",
                             P1, T_LISTAS, M_LISTAS,
@@ -72,7 +72,7 @@ public final class CatalogoClase {
                             "Se avanza con dos apuntadores, 'anterior' y 'actual'. Si el nodo a borrar es la "
                                     + "cabeza, la cabeza pasa al siguiente; si está en medio o al final, el anterior "
                                     + "se salta el nodo (anterior.siguiente = actual.siguiente). Son los dos casos de "
-                                    + "eliminación vistos en clase."),
+                                    + "eliminación en una lista simple."),
                     new Referencia("Recorrer la lista para el total",
                             P1, T_LISTAS, M_LISTAS,
                             "carrito/Carrito.java", "public double calcularTotal()",
@@ -85,7 +85,7 @@ public final class CatalogoClase {
                             "navegador/modelo/Pila.java", "public void apilar(T elemento)",
                             "Pila implementada con un arreglo y un índice 'tope'. Apilar escribe en "
                                     + "elementos[tope] y aumenta el tope; si la pila está llena se lanza un error "
-                                    + "(desbordamiento). Es la operación push de clase, O(1)."),
+                                    + "(desbordamiento). Es la operación push, O(1)."),
                     new Referencia("Pop: desapilar la cima",
                             P1, T_PILAS, M_PILAS,
                             "navegador/modelo/Pila.java", "public T desapilar()",
@@ -103,7 +103,7 @@ public final class CatalogoClase {
                             P1, T_COLAS, M_COLAS,
                             "cola/ColaImpresion.java", "public String encolar(String computadora)",
                             "FIFO: el trabajo nuevo se agrega al final de la cola, y antes se revisa si ya está "
-                                    + "llena (capacidad 6). Es la operación encolar (enqueue) de clase."),
+                                    + "llena (capacidad 6). Es la operación encolar (enqueue)."),
                     new Referencia("Atender: sale el frente",
                             P1, T_COLAS, M_COLAS,
                             "cola/ColaImpresion.java", "public String atender()",
@@ -132,7 +132,7 @@ public final class CatalogoClase {
                     new Referencia("Eliminar: los tres casos",
                             P2, T_ARBOLES, M_ARBOLES,
                             "archivos/ArbolArchivos.java", "public boolean eliminar(String nombre)",
-                            "Los tres casos de clase: hoja (se quita), un hijo (el hijo toma su lugar) y dos "
+                            "Los tres casos de eliminación en un ABB: hoja (se quita), un hijo (el hijo toma su lugar) y dos "
                                     + "hijos (se reemplaza por el sucesor inorden, el menor del subárbol derecho, o por "
                                     + "el predecesor si el sucesor es un archivo).")),
             6, List.of(
@@ -145,14 +145,14 @@ public final class CatalogoClase {
                     new Referencia("Dijkstra: el camino más corto",
                             P2, T_GRAFOS, M_CAMINO,
                             "rutamagica/Dijkstra.java", "public Dijkstra(Grafo grafo, String origen)",
-                            "Como en clase: todos los vértices empiezan en infinito y el origen en 0; se toma el "
+                            "Dijkstra: todos los vértices empiezan en infinito y el origen en 0; se toma el "
                                     + "de menor distancia no visitado y se relajan sus vecinos (si pasar por él es más "
                                     + "corto, se actualiza la distancia y el anterior). La cola de prioridad sólo hace "
                                     + "más rápido elegir el menor."),
                     new Referencia("Reconstruir la ruta",
                             P2, T_GRAFOS, M_CAMINO,
                             "rutamagica/Dijkstra.java", "public List<String> getRuta(String destino)",
-                            "Se sigue el arreglo 'anterior' desde el destino hasta el origen y luego se invierte "
+                            "Se sigue el mapa 'anterior' desde el destino hasta el origen y luego se invierte "
                                     + "la lista. Si la distancia quedó en infinito, no hay ruta entre los dos pueblos."),
                     new Referencia("Leer el grafo desde un archivo",
                             P2, T_GRAFOS, M_GRAFOS,

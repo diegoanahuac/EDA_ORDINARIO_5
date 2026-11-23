@@ -126,6 +126,9 @@ public abstract class PanelProyecto extends JPanel {
             b.setFocusPainted(false);
             b.setBorder(BorderFactory.createEmptyBorder(7, 16, 7, 16));
             b.setOpaque(true);
+            // Holgura: con otras fuentes (versión web) el texto mide un poco más.
+            Dimension medida = b.getPreferredSize();
+            b.setPreferredSize(new Dimension(medida.width + 20, medida.height));
             b.setCursor(java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.HAND_CURSOR));
             fila.add(b);
         }
