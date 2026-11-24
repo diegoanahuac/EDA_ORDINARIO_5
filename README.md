@@ -29,12 +29,12 @@ En Windows: `ejecutar.bat`. El script compila todo en `out/` y abre el dashboard
 
 ### Desde la terminal de Windows (CMD)
 
-1. Descarga el ZIP de esta rama y extráelo con clic derecho › **Extraer todo** (por defecto queda en Descargas).
+1. Descarga el [ZIP del repositorio](https://github.com/diegoanahuac/EDA_ORDINARIO_5/archive/refs/heads/main.zip) y extráelo con clic derecho › **Extraer todo** (por defecto queda en Descargas).
 2. Abre **Símbolo del sistema** (tecla Windows, escribe `cmd` y Enter).
 3. Entra a la carpeta del proyecto con `cd` y ejecuta el script:
 
 ```bat
-cd %USERPROFILE%\Downloads\EDA_ORDINARIO_5-explicacion-clase\EDA_ORDINARIO_5-explicacion-clase
+cd %USERPROFILE%\Downloads\EDA_ORDINARIO_5-main\EDA_ORDINARIO_5-main
 ejecutar.bat
 ```
 
@@ -130,9 +130,9 @@ La barra lateral lleva a cada proyecto por separado; la pantalla de inicio tiene
 |---|---|
 | ![Ruta](docs/capturas/06_ruta_sisal_espita.png) | ![Paso a paso](docs/capturas/06_ruta_paso_a_paso.png) |
 
-## Código y clase (rama `explicacion-clase`)
+## Código y clase
 
-En esta rama cada proyecto tiene dos vistas, que se cambian con los botones de arriba: **Demo interactiva** (la de siempre) y **Código y clase**. La segunda explica qué funciones usamos y cómo se relacionan con lo visto en clase (Brightspace › Contenido › Parcial 1 y Parcial 2):
+Cada proyecto tiene dos vistas, que se cambian con los botones de arriba: **Demo interactiva** (la de siempre) y **Código y clase**. La segunda explica qué funciones usamos y cómo se relacionan con lo visto en clase (Brightspace › Contenido › Parcial 1 y Parcial 2):
 
 - A la izquierda, las funciones del proyecto.
 - Arriba a la derecha, el tema de clase y su material de Brightspace, y una explicación de cómo se relaciona el código con lo que vimos.
@@ -151,7 +151,7 @@ En esta rama cada proyecto tiene dos vistas, que se cambian con los botones de a
 |---|---|
 | ![Código y clase: árbol](docs/capturas/clase_05_archivos.png) | ![Código y clase: grafos](docs/capturas/clase_06_ruta.png) |
 
-**Descargar esta rama en Windows:** baja el ZIP de https://github.com/diegoanahuac/EDA_ORDINARIO_5/archive/refs/heads/explicacion-clase.zip, extráelo (clic derecho › Extraer todo) y haz doble clic en `ejecutar.bat`, o ábrelo desde CMD con `cd` (ver [Desde la terminal de Windows](#desde-la-terminal-de-windows-cmd)). Necesitas el JDK 17 o superior. Con Git: `git clone -b explicacion-clase https://github.com/diegoanahuac/EDA_ORDINARIO_5.git`.
+**Descargar en Windows:** baja el ZIP de https://github.com/diegoanahuac/EDA_ORDINARIO_5/archive/refs/heads/main.zip, extráelo (clic derecho › Extraer todo) y haz doble clic en `ejecutar.bat`, o ábrelo desde CMD con `cd` (ver [Desde la terminal de Windows](#desde-la-terminal-de-windows-cmd)). Necesitas el JDK 17 o superior. Con Git: `git clone https://github.com/diegoanahuac/EDA_ORDINARIO_5.git`.
 
 Las referencias están en `src/dashboard/clase/CatalogoClase.java` (una lista por proyecto); para agregar una función basta con añadir otra `Referencia` con el archivo y el inicio de su firma.
 

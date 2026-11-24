@@ -84,7 +84,7 @@ public final class Capturas {
         capturar(carpeta, "06_ruta_paso_a_paso", Dashboard.clave(6),
                 () -> ruta.consultar("Tekax", "Motul", true), 2900);
 
-        // Rama explicacion-clase: la pestaña "Código y clase" de cada proyecto.
+        // La pestaña "Código y clase" de cada proyecto.
         String[] nombres = {"resistencia", "carrito", "navegador", "cola", "archivos", "ruta"};
         for (int i = 0; i < p.size(); i++) {
             PanelProyecto proyecto = p.get(i);

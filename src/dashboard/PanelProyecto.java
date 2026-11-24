@@ -88,7 +88,7 @@ public abstract class PanelProyecto extends JPanel {
      */
     protected void setContenido(JComponent contenido) {
         // Dos vistas por proyecto: la demo interactiva y la explicación de las
-        // funciones con lo visto en clase (rama explicacion-clase).
+        // funciones con lo visto en clase.
         JPanel vistas = new JPanel(cartas);
         vistas.setOpaque(false);
         vistas.add(contenido, VISTA_DEMO);
